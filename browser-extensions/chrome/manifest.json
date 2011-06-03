@@ -1,0 +1,18 @@
+{
+  "name": "lbt.me",
+  "description": "A short URL service built on Drupal by your friends at Lullabot",
+  "version": "1.0",
+  "options_page": "options.html",
+  "permissions": [
+    "http://lbt.me/",
+    "contextMenus"
+  ],
+  "background_page": "background.html",
+  "browser_action": {
+    "default_icon": "lullabot.png", 
+    "default_title": "lbt.me"
+  },
+  "icons": {
+    "16": "lullabot.png"
+  }
+}
