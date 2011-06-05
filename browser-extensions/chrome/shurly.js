@@ -1,9 +1,7 @@
-
 // A generic onclick callback function.
 function genericOnClick(info, tab) {
   var url = shurlyGetUrl(info);
   shurlyGetShortUrl(url);
-  console.log("copied");
 }
 
 // Create a contextMenu item and assign an onclick event to it.
@@ -59,5 +57,14 @@ function copyToClipboard(text){
   input.focus();
   input.select();
   document.execCommand('Copy');
-  console.log("coped: " + text);
+  
+  // Create a simple text notification:
+  var notification = webkitNotifications.createNotification(
+    'lullabotx85.png',  // icon url - can be relative
+    'shUrly',  // notification title
+    'URL Copied to clipboard: ' + text  // notification body text
+  );
+  
+  // Show the notification.
+  notification.show();
 }

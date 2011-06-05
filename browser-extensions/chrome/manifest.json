@@ -5,7 +5,8 @@
   "options_page": "options.html",
   "permissions": [
     "http://lb.cm/", // how do we make this configurable?
-    "contextMenus"
+    "contextMenus",
+    "notifications"
   ],
   "background_page": "background.html",
   "browser_action": {
