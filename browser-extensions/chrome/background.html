@@ -10,7 +10,7 @@
 
   // Create a contextMenu item and assign an onclick event to it.
   var shurlyLink = chrome.contextMenus.create({
-    "title": "lbt.me",
+    "title": "shUrly",
     "contexts": ["page","link","image"],
     "onclick": genericOnClick
   });
@@ -39,9 +39,9 @@
 
   function shurlyGetShortUrl(url) {
     var xhr = new XMLHttpRequest();
-    //What is the difference between, lbt.me and lb.cm ??
-    var lbt = "http://lbt.me/shurly/api/shorten?longUrl=" + url + "&format=txt";
-    xhr.open("GET", lbt, true);
+    //The domain should be configurable.
+    var shUrl = "http://lb.cm/shurly/api/shorten?longUrl=" + url + "&format=txt";
+    xhr.open("GET", shUrl, true);
     xhr.onreadystatechange = function() {
       if (xhr.readyState == 4) {
         if (xhr.responseText) {
