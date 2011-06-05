@@ -670,7 +670,7 @@ function shurly_validate_long(&$long_url, $custom = NULL) {
       
       // We only get down here if the long URL links to this domain
       // by the way, we're ignoring any subdomain...
-      // so http://lbt.me/something and http://www.lbt.me/something are assumed to be the same
+      // so http://lb.cm/something and http://www.lb.cm/something are assumed to be the same
       if ($match) {
         // let's see if there's a $_GET['q'] in the long URL
         $query = $long_parse['query'];

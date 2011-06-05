@@ -1,66 +1,8 @@
 <html>
-<body>
-<input type="text" id="clipboard" />
-<script>
-  // A generic onclick callback function.
-  function genericOnClick(info, tab) {
-    var url = lbtMeGetUrl(info);
-    lbtMeGetShortUrl(url);
-  }
-
-  // Create a contextMenu item and assign an onclick event to it.
-  var shurlyLink = chrome.contextMenus.create({
-    "title": "lbt.me",
-    "contexts": ["page","link","image"],
-    "onclick": genericOnClick
-  });
-  
-  chrome.browserAction.onClicked.addListener(function(tab) {
-    if (tab.url != undefined) {
-      lbtMeGetShortUrl(tab.url);
-    }
-  });
-
-  function lbtMeGetUrl(info) {
-    if (info.srcUrl != undefined) {
-      // Its an image
-      return info.srcUrl;
-    }
-    else if (info.linkUrl != undefined) {
-      // Its a link
-      return info.linkUrl;
-    }
-    else {
-      // It has to be the page, either way, we're going to return the page url/
-      return info.pageUrl;
-    }
-  }
-  
-
-  function lbtMeGetShortUrl(url) {
-    var xhr = new XMLHttpRequest();
-    //What is the difference between, lbt.me and lb.cm ??
-    var lbt = "http://lbt.me/shurly/api/shorten?longUrl=" + url + "&format=txt";
-    xhr.open("GET", lbt, true);
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState == 4) {
-        if (xhr.responseText) {
-          copyToClipboard(xhr.responseText);
-        }
-      }
-    }
-    xhr.send();
-  }
-
-  /**
-   * Automagically save to clipboard.
-   * We need to do a small pop-up bubble, that fades out in 2 sec.
-   */
-  function copyToClipboard(text){
-    var input = document.getElementById('clipboard');
-    input.value = text;
-    input.focus();
-    input.select();
-    document.execCommand('Copy');
-  }</script>
+  <head>
+    <script src="shurly.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+    <input type="text" id="clipboard" />
+  </body>
 </html>
