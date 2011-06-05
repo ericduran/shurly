@@ -10,8 +10,7 @@
   "background_page": "background.html",
   "browser_action": {
     "default_icon": "lullabot.png", 
-    "default_title": "shUrly",
-    "popup": "popup.html"
+    "default_title": "shUrly"
   },
   "icons": {
     "16": "lullabot.png"
